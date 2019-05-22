@@ -41,3 +41,13 @@
     }
 
 }
+
+
+---------
+@inject HttpClient Http
+
+protected override async Task OnInitAsync()
+{
+Teams = await Http.GetJsonAsync<List<TeamDto>>("http://teams-api.com/teams");
+}
+---------

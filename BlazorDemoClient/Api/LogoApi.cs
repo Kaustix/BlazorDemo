@@ -1,4 +1,4 @@
-﻿namespace hockey.Api
+﻿namespace BlazorDemoClient.Api
 {
     public class LogoDto
     {
