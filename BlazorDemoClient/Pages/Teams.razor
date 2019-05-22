@@ -1,0 +1,43 @@
+﻿@page "/teams"
+@using BlazorDemoClient.Api
+@using BlazorDemoClient.Models
+@inject IHockeyApi Api
+
+
+<div>
+    <h1>TeamsDto</h1>
+    
+    <input placeholder="Cool team name" bind="@newTeam"/>
+    <button onclick="@AddTeam">Create</button>
+
+    <div class="teams">
+        @foreach (var team in TeamItems.OrderBy(x => x.Name))
+        {
+            <TeamItem Name="@team.Name" Logo="@team.Logo"/>
+        }
+    </div>
+</div>
+
+@functions{
+    IList<Team> TeamItems = new List<Team>();
+    private string newTeam;
+
+    protected override async Task OnInitAsync()
+    {
+        TeamItems = await Api.GetTeams();
+    }
+
+    private void AddTeam()
+    {
+        if (!string.IsNullOrWhiteSpace(newTeam))
+        {
+            TeamItems.Add(new Team
+            {
+                Name = newTeam
+            });
+
+            newTeam = string.Empty;
+        }
+    }
+
+}

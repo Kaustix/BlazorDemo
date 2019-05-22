@@ -1,0 +1,16 @@
+﻿@using Microsoft.AspNetCore.Components
+
+    <div class="team-item">
+        <img src="@Logo" alt="@Name" />
+        <h4>@Name</h4>
+    </div>
+
+@functions {
+
+    [Parameter]
+    private string Name { get; set; }
+
+    [Parameter]
+    private string Logo { get; set; }
+
+}
