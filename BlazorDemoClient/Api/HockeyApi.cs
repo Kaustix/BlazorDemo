@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using AutoMapper;
 using BlazorDemoClient.Contracts;
 using BlazorDemoClient.Models;
-using hockey.Api;
 using Microsoft.AspNetCore.Components;
 
 namespace BlazorDemoClient.Api
